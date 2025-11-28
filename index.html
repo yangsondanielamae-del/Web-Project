@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Personal Portfolio</title>
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="active">home</a>
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#portfolio">portfolio</a>
+            <a href="#contact">contact</a>
+
+            <!-- HIDDEN LOGIN/REGISTER (REMOVED) -->
+            <!-- logout only shows when logged in -->
+            <a href="#" id="logoutLink" style="display:none; color:#ff4d4d;">Logout</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, I'm</h3>
+            <h1>Daniela Mae</h1>
+            <h3>CEIT <span>MASARAP MASARAP!!!</span></h3>
+
+            <p>Proverbs 3:5–6</p>
+            <p>“Trust in the Lord with all your heart… and He will make your paths straight.”</p>
+
+            <div class="social-media">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+
+            <a href="#" class="btn">Download CV</a>
+        </div>
+
+        <div class="home-image">
+            <img src="image.png" alt="Profile Image">
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Show logout if logged in
+        const logoutLink = document.getElementById("logoutLink");
+        const loggedIn = localStorage.getItem("loggedIn");
+
+        if (loggedIn === "true") {
+            logoutLink.style.display = "inline-block";
+        } else {
+            window.location.href = "login.html"; // force login
+        }
+
+        logoutLink.onclick = function () {
+            localStorage.removeItem("loggedIn");
+            window.location.href = "login.html";
+        };
+    </script>
+
+</body>
+</html>
